@@ -1,0 +1,87 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: telegram_learning_bot
+      POSTGRES_USER: bot_user
+      POSTGRES_PASSWORD: bot_password
+    ports: ["5432:5432"]
+    volumes: ["postgres_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bot_user -d telegram_learning_bot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    env_file: [.env]
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN:-}
+      DATABASE_URL: postgresql+asyncpg://bot_user:bot_password@postgres:5432/telegram_learning_bot
+      REDIS_URL: redis://redis:6379/0
+      APP_HOST: ${APP_HOST:-0.0.0.0}
+      APP_PORT: ${APP_PORT:-8000}
+      DEBUG: ${DEBUG:-true}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      CONTENT_GENERATION_MODE: ${CONTENT_GENERATION_MODE:-template}
+      YANDEXGPT_API_KEY: ${YANDEXGPT_API_KEY:-}
+      YANDEXGPT_IAM_TOKEN: ${YANDEXGPT_IAM_TOKEN:-}
+      YANDEXGPT_FOLDER_ID: ${YANDEXGPT_FOLDER_ID:-}
+      YANDEXGPT_MODEL: ${YANDEXGPT_MODEL:-yandexgpt-lite}
+      YANDEXGPT_MODEL_URI: ${YANDEXGPT_MODEL_URI:-}
+      YANDEXGPT_BASE_URL: ${YANDEXGPT_BASE_URL:-https://llm.api.cloud.yandex.net/foundationModels/v1/completion}
+      YANDEXGPT_TIMEOUT_SECONDS: ${YANDEXGPT_TIMEOUT_SECONDS:-20}
+      YANDEXGPT_FEW_SHOT_EXAMPLES: ${YANDEXGPT_FEW_SHOT_EXAMPLES:-3}
+    ports: ["8000:8000"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    command: sh -c "alembic upgrade head && python -m scripts.seed_data && uvicorn app.main:create_app --factory --host $${APP_HOST:-0.0.0.0} --port $${APP_PORT:-8000}"
+
+  bot:
+    build: .
+    env_file: [.env]
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN:-}
+      DATABASE_URL: postgresql+asyncpg://bot_user:bot_password@postgres:5432/telegram_learning_bot
+      REDIS_URL: redis://redis:6379/0
+      DEBUG: ${DEBUG:-true}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      CONTENT_GENERATION_MODE: ${CONTENT_GENERATION_MODE:-template}
+      YANDEXGPT_API_KEY: ${YANDEXGPT_API_KEY:-}
+      YANDEXGPT_IAM_TOKEN: ${YANDEXGPT_IAM_TOKEN:-}
+      YANDEXGPT_FOLDER_ID: ${YANDEXGPT_FOLDER_ID:-}
+      YANDEXGPT_MODEL: ${YANDEXGPT_MODEL:-yandexgpt-lite}
+      YANDEXGPT_MODEL_URI: ${YANDEXGPT_MODEL_URI:-}
+      YANDEXGPT_BASE_URL: ${YANDEXGPT_BASE_URL:-https://llm.api.cloud.yandex.net/foundationModels/v1/completion}
+      YANDEXGPT_TIMEOUT_SECONDS: ${YANDEXGPT_TIMEOUT_SECONDS:-20}
+      YANDEXGPT_FEW_SHOT_EXAMPLES: ${YANDEXGPT_FEW_SHOT_EXAMPLES:-3}
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+      app: {condition: service_started}
+    command: python -m app.bot.main
+
+  backup:
+    image: postgres:16-alpine
+    profiles: ["tools"]
+    environment:
+      PGPASSWORD: bot_password
+    volumes:
+      - ./backups:/backups
+    depends_on:
+      postgres: {condition: service_healthy}
+    command: sh -c "pg_dump -h postgres -U bot_user -d telegram_learning_bot -Fc -f /backups/telegram_learning_bot_$$(date +%Y%m%d_%H%M%S).dump"
+
+volumes:
+  postgres_data:
