@@ -305,7 +305,9 @@ QUESTS = [
 async def seed_base_topics_and_tasks(session) -> None:
     topic_map = {}
     for title, desc in TOPICS:
-        topic = await first_or_none(session, select(Topic).where(Topic.title == title))
+        topic = (
+            await session.execute(select(Topic).where(Topic.title == title))
+        ).scalar_one_or_none()
         if topic is None:
             topic = Topic(title=title, description=desc)
             session.add(topic)
@@ -314,10 +316,10 @@ async def seed_base_topics_and_tasks(session) -> None:
     for title, tasks in TASKS.items():
         for task_type, difficulty, question, answer, options, explanation in tasks:
             if (
-                    await first_or_none(
-                        session, select(Task).where(Task.question_text == question)
+                await first_or_none(
+                    session, select(Task).where(Task.question_text == question)
                 )
-                    is None
+                is None
             ):
                 session.add(
                     Task(
@@ -348,7 +350,9 @@ async def seed_ege_profile_math(session) -> None:
             f"Уровень: {item.get('level')}.\n\n"
             f"{item.get('description', '')}"
         )
-        topic = await first_or_none(session, select(Topic).where(Topic.title == title))
+        topic = (
+            await session.execute(select(Topic).where(Topic.title == title))
+        ).scalar_one_or_none()
         if topic is None:
             topic = Topic(title=title, description=description)
             session.add(topic)
@@ -364,13 +368,13 @@ async def seed_ege_profile_math(session) -> None:
         for raw_task in tasks:
             task_data = _normalize_ege_task(raw_task)
             if (
-                    await first_or_none(
-                        session,
-                        select(Task).where(
-                            Task.question_text == task_data["question_text"]
-                        ),
+                await first_or_none(
+                    session,
+                    select(Task).where(
+                        Task.question_text == task_data["question_text"]
+                    ),
                 )
-                    is not None
+                is not None
             ):
                 continue
             task_kwargs = {
@@ -423,10 +427,10 @@ async def main() -> None:
         await seed_ege_profile_math(session)
         for code, title, desc, ctype, cval, xp in ACHIEVEMENTS:
             if (
-                    await first_or_none(
-                        session, select(Achievement).where(Achievement.code == code)
+                await first_or_none(
+                    session, select(Achievement).where(Achievement.code == code)
                 )
-                    is None
+                is None
             ):
                 session.add(
                     Achievement(
@@ -440,8 +444,8 @@ async def main() -> None:
                 )
         for code, title, desc, qtype, target, xp, topic_id in QUESTS:
             if (
-                    await first_or_none(session, select(Quest).where(Quest.code == code))
-                    is None
+                await first_or_none(session, select(Quest).where(Quest.code == code))
+                is None
             ):
                 session.add(
                     Quest(

@@ -62,9 +62,8 @@ class AdaptiveService:
 
     async def select_next_task(self, user_id: int, topic_id: int):
         m = await self.get_or_create_mastery_profile(user_id, topic_id)
-        return await self.content.get_or_generate_task(
-            topic_id, self.calculate_next_difficulty(m)
-        )
+        difficulty = m.current_difficulty or 1
+        return await self.content.get_or_generate_task(topic_id, difficulty)
 
     def _snapshot(self, m) -> MasterySnapshot:
         return MasterySnapshot(

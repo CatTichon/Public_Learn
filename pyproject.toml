@@ -28,6 +28,11 @@ include = ["app*"]
 asyncio_mode = "auto"
 pythonpath = ["."]
 testpaths = ["tests"]
+markers = [
+    "performance: benchmark and latency measurements",
+    "integration: end-to-end and state synchronization tests",
+    "experiment: reproducible research scenarios for chapter 4",
+]
 
 [tool.black]
 line-length = 88

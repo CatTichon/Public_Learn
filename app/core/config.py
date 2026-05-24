@@ -23,10 +23,10 @@ class Settings(BaseSettings):
     yandexgpt_model: str = Field(default="yandexgpt-lite", alias="YANDEXGPT_MODEL")
     yandexgpt_model_uri: str = Field(default="", alias="YANDEXGPT_MODEL_URI")
     yandexgpt_few_shot_examples: int = Field(
-        default = 3,
-        validation_alias = AliasChoices(
-        "YANDEXGPT_FEW_SHOT_EXAMPLES",
-        "YANDEXGPT_EXAMPLES_LIMIT",
+        default=3,
+        validation_alias=AliasChoices(
+            "YANDEXGPT_FEW_SHOT_EXAMPLES",
+            "YANDEXGPT_EXAMPLES_LIMIT",
         ),
     )
     yandexgpt_base_url: str = Field(

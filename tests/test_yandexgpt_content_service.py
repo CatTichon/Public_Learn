@@ -114,7 +114,6 @@ def test_build_request_payload_uses_explicit_model_uri():
     assert payload["modelUri"] == "gpt://folder123/custom/model"
 
 
-
 def test_request_payload_contains_examples():
     class Settings:
         yandexgpt_folder_id = "folder"
