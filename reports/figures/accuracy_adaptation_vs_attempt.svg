@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520">
+<text x="450.0" y="30" text-anchor="middle" font-size="20">Adaptive vs linear mastery by attempt</text>
+<line x1="80" y1="60" x2="80" y2="450" stroke="#111827" />
+<line x1="80" y1="450" x2="860" y2="450" stroke="#111827" />
+<text x="450.0" y="500" text-anchor="middle" font-size="14">Attempt</text>
+<text x="20" y="260.0" transform="rotate(-90 20,260.0)" text-anchor="middle" font-size="14">Mastery level</text>
+<polyline fill="none" stroke="#2563eb" stroke-width="3" points="80.00,60.00 191.43,247.20 302.86,309.61 414.29,130.20 525.71,191.04 637.14,231.60 748.57,260.58 860.00,212.10" />
+<circle cx="80.00" cy="60.00" r="4" fill="#2563eb" />
+<circle cx="191.43" cy="247.20" r="4" fill="#2563eb" />
+<circle cx="302.86" cy="309.61" r="4" fill="#2563eb" />
+<circle cx="414.29" cy="130.20" r="4" fill="#2563eb" />
+<circle cx="525.71" cy="191.04" r="4" fill="#2563eb" />
+<circle cx="637.14" cy="231.60" r="4" fill="#2563eb" />
+<circle cx="748.57" cy="260.58" r="4" fill="#2563eb" />
+<circle cx="860.00" cy="212.10" r="4" fill="#2563eb" />
+<rect x="690" y="70" width="14" height="14" fill="#2563eb" />
+<text x="710" y="81" font-size="13">adaptive</text>
+<polyline fill="none" stroke="#dc2626" stroke-width="3" points="80.00,216.00 191.43,216.00 302.86,382.38 414.29,372.00 525.71,365.76 637.14,361.62 748.57,412.11 860.00,450.00" />
+<circle cx="80.00" cy="216.00" r="4" fill="#dc2626" />
+<circle cx="191.43" cy="216.00" r="4" fill="#dc2626" />
+<circle cx="302.86" cy="382.38" r="4" fill="#dc2626" />
+<circle cx="414.29" cy="372.00" r="4" fill="#dc2626" />
+<circle cx="525.71" cy="365.76" r="4" fill="#dc2626" />
+<circle cx="637.14" cy="361.62" r="4" fill="#dc2626" />
+<circle cx="748.57" cy="412.11" r="4" fill="#dc2626" />
+<circle cx="860.00" cy="450.00" r="4" fill="#dc2626" />
+<rect x="690" y="92" width="14" height="14" fill="#dc2626" />
+<text x="710" y="103" font-size="13">linear</text>
+</svg>

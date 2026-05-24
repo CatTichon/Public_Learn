@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540">
+<text x="490.0" y="30" text-anchor="middle" font-size="20">Generation latency by mode</text>
+<line x1="80" y1="60" x2="80" y2="420" stroke="#111827" />
+<line x1="80" y1="420" x2="940" y2="420" stroke="#111827" />
+<text x="20" y="270.0" transform="rotate(-90 20,270.0)" text-anchor="middle" font-size="14">Mean latency, ms</text>
+<rect x="105.80" y="60.00" width="120.40" height="360.00" fill="#2563eb" />
+<text x="166.00" y="54.00" text-anchor="middle" font-size="11">16.97</text>
+<text x="166.00" y="440" text-anchor="middle" font-size="11" transform="rotate(25 166.00,440)">comparison</text>
+<rect x="277.80" y="390.81" width="120.40" height="29.19" fill="#16a34a" />
+<text x="338.00" y="384.81" text-anchor="middle" font-size="11">1.38</text>
+<text x="338.00" y="440" text-anchor="middle" font-size="11" transform="rotate(25 338.00,440)">database</text>
+<rect x="449.80" y="82.40" width="120.40" height="337.60" fill="#dc2626" />
+<text x="510.00" y="76.40" text-anchor="middle" font-size="11">15.91</text>
+<text x="510.00" y="440" text-anchor="middle" font-size="11" transform="rotate(25 510.00,440)">fallback</text>
+<rect x="621.80" y="419.89" width="120.40" height="0.11" fill="#9333ea" />
+<text x="682.00" y="413.89" text-anchor="middle" font-size="11">0.01</text>
+<text x="682.00" y="440" text-anchor="middle" font-size="11" transform="rotate(25 682.00,440)">template</text>
+<rect x="793.80" y="104.23" width="120.40" height="315.77" fill="#ea580c" />
+<text x="854.00" y="98.23" text-anchor="middle" font-size="11">14.88</text>
+<text x="854.00" y="440" text-anchor="middle" font-size="11" transform="rotate(25 854.00,440)">yandexgpt_mocked</text>
+</svg>

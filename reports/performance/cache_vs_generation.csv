@@ -1,0 +1,9 @@
+test_name,cached_mean_ms,template_generation_mean_ms,redis_get_calls,redis_setex_calls,observation
+test_cached_task_is_faster_than_template_generation,2.300860774857938,3.305984662620176,0,81,redis_write_only_no_reads
+test_database_task_is_faster_than_template_generation,2.205340162709035,2.7329386376550246,3.6601917981897705,5.174984801305982
+test_cache_hit_rate_under_repeated_requests,0.0,0,1,Current implementation writes generated tasks to Redis but does not read them back.
+test_cache_miss_triggers_generation,5,1,1
+test_cached_task_is_faster_than_template_generation,1.751063350275217,3.3462330502061377,0,81,redis_write_only_no_reads
+test_database_task_is_faster_than_template_generation,2.047602687298422,3.0551577875485236,3.478415648896771,4.679776498414867
+test_cache_hit_rate_under_repeated_requests,0.0,0,1,Current implementation writes generated tasks to Redis but does not read them back.
+test_cache_miss_triggers_generation,5,1,1

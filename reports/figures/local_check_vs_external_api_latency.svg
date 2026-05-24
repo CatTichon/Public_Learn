@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540">
+<text x="490.0" y="30" text-anchor="middle" font-size="20">Local check vs external API latency</text>
+<line x1="80" y1="60" x2="80" y2="420" stroke="#111827" />
+<line x1="80" y1="420" x2="940" y2="420" stroke="#111827" />
+<text x="20" y="270.0" transform="rotate(-90 20,270.0)" text-anchor="middle" font-size="14">Mean latency, ms</text>
+<rect x="101.50" y="296.44" width="100.33" height="123.56" fill="#2563eb" />
+<text x="151.67" y="290.44" text-anchor="middle" font-size="11">4.89</text>
+<text x="151.67" y="440" text-anchor="middle" font-size="11" transform="rotate(25 151.67,440)">code_answer</text>
+<rect x="244.83" y="60.00" width="100.33" height="360.00" fill="#16a34a" />
+<text x="295.00" y="54.00" text-anchor="middle" font-size="11">14.26</text>
+<text x="295.00" y="440" text-anchor="middle" font-size="11" transform="rotate(25 295.00,440)">comparison</text>
+<rect x="388.17" y="84.54" width="100.33" height="335.46" fill="#dc2626" />
+<text x="438.33" y="78.54" text-anchor="middle" font-size="11">13.29</text>
+<text x="438.33" y="440" text-anchor="middle" font-size="11" transform="rotate(25 438.33,440)">external_api_mocked</text>
+<rect x="531.50" y="419.97" width="100.33" height="0.03" fill="#9333ea" />
+<text x="581.67" y="413.97" text-anchor="middle" font-size="11">0.00</text>
+<text x="581.67" y="440" text-anchor="middle" font-size="11" transform="rotate(25 581.67,440)">numeric_answer</text>
+<rect x="674.83" y="419.99" width="100.33" height="0.01" fill="#ea580c" />
+<text x="725.00" y="413.99" text-anchor="middle" font-size="11">0.00</text>
+<text x="725.00" y="440" text-anchor="middle" font-size="11" transform="rotate(25 725.00,440)">single_choice</text>
+<rect x="818.17" y="419.98" width="100.33" height="0.02" fill="#0891b2" />
+<text x="868.33" y="413.98" text-anchor="middle" font-size="11">0.00</text>
+<text x="868.33" y="440" text-anchor="middle" font-size="11" transform="rotate(25 868.33,440)">text_answer</text>
+</svg>

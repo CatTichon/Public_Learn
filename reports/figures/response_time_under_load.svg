@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520">
+<text x="450.0" y="30" text-anchor="middle" font-size="20">Response time under load</text>
+<line x1="80" y1="60" x2="80" y2="450" stroke="#111827" />
+<line x1="80" y1="450" x2="860" y2="450" stroke="#111827" />
+<text x="450.0" y="500" text-anchor="middle" font-size="14">Virtual users</text>
+<text x="20" y="260.0" transform="rotate(-90 20,260.0)" text-anchor="middle" font-size="14">Mean latency, ms</text>
+<polyline fill="none" stroke="#2563eb" stroke-width="3" points="80.00,450.00 223.27,439.27 541.63,413.85 860.00,384.44" />
+<circle cx="80.00" cy="450.00" r="4" fill="#2563eb" />
+<circle cx="223.27" cy="439.27" r="4" fill="#2563eb" />
+<circle cx="541.63" cy="413.85" r="4" fill="#2563eb" />
+<circle cx="860.00" cy="384.44" r="4" fill="#2563eb" />
+<rect x="690" y="70" width="14" height="14" fill="#2563eb" />
+<text x="710" y="81" font-size="13">test_concurrent_health_requests</text>
+<polyline fill="none" stroke="#dc2626" stroke-width="3" points="80.00,447.71 223.27,430.49 541.63,392.34 860.00,341.21" />
+<circle cx="80.00" cy="447.71" r="4" fill="#dc2626" />
+<circle cx="223.27" cy="430.49" r="4" fill="#dc2626" />
+<circle cx="541.63" cy="392.34" r="4" fill="#dc2626" />
+<circle cx="860.00" cy="341.21" r="4" fill="#dc2626" />
+<rect x="690" y="92" width="14" height="14" fill="#dc2626" />
+<text x="710" y="103" font-size="13">test_concurrent_next_task_requests</text>
+<polyline fill="none" stroke="#16a34a" stroke-width="3" points="80.00,440.67 223.27,372.69 541.63,224.97 860.00,60.00" />
+<circle cx="80.00" cy="440.67" r="4" fill="#16a34a" />
+<circle cx="223.27" cy="372.69" r="4" fill="#16a34a" />
+<circle cx="541.63" cy="224.97" r="4" fill="#16a34a" />
+<circle cx="860.00" cy="60.00" r="4" fill="#16a34a" />
+<rect x="690" y="114" width="14" height="14" fill="#16a34a" />
+<text x="710" y="125" font-size="13">test_concurrent_answer_requests</text>
+<polyline fill="none" stroke="#9333ea" stroke-width="3" points="80.00,441.44 223.27,392.57 541.63,299.84 860.00,201.05" />
+<circle cx="80.00" cy="441.44" r="4" fill="#9333ea" />
+<circle cx="223.27" cy="392.57" r="4" fill="#9333ea" />
+<circle cx="541.63" cy="299.84" r="4" fill="#9333ea" />
+<circle cx="860.00" cy="201.05" r="4" fill="#9333ea" />
+<rect x="690" y="136" width="14" height="14" fill="#9333ea" />
+<text x="710" y="147" font-size="13">test_concurrent_mixed_user_flow</text>
+</svg>
